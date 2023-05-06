@@ -1,5 +1,11 @@
 # Cheat sheet
 
+## Tools / addins
+| Tool | Description |
+| ----- | ----------------- |
+| foxyproxy | Firefox addin for quickly changing proxy | 
+| Wappalyser | Firefox addin for analysing framworks used in a webpage |
+
 ## Discovery
 
 ### nmap
@@ -13,6 +19,26 @@ smbclient -N \\\\{TARGET_IP}\{share} - Contact to target share
 ```
 
 ### SQL Server
+
+
+### Directory Busting
+```
+gobuster dir -u http://$m -w /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt -x php
+```
+
+### Password Cracking
+John the ripper
+```
+zip2john file.zip > hashes
+john -wordlist=/usr/share/wordlists/rockyou.txt hashes
+```
+once a hash is obtained, eg from a php file md5("xxx")
+echo {hash} > hash
+the command below is for md5 only
+```
+hashcat -a 0 -m 0 hash /usr/share/wordlists/rockyou.txt 
+```
+
 
 # Dillinger
 ## _The Last Markdown Editor, Ever_
